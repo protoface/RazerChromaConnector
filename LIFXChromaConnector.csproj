@@ -88,8 +88,6 @@
   <ItemGroup>
     <Compile Include="ChromaBroadcastConfigurator\App.cs" />
     <Compile Include="ChromaBroadcastConfigurator\MainWindow.cs" />
-    <Compile Include="LifxChromaConnect\Properties\Resources.cs" />
-    <Compile Include="LifxChromaConnect\Properties\Settings.cs" />
     <Compile Include="ChromaBroadcast\ChromaManager.cs" />
     <Compile Include="ChromaBroadcast\Utils.cs" />
     <Compile Include="ChromaBroadcast\CHROMA_BROADCAST.cs" />
