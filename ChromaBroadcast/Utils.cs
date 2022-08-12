@@ -17,23 +17,21 @@ namespace ChromaBroadcast
 
 		public static byte GetBlue(int colorRef) => (byte)(colorRef >> 16 & (int)byte.MaxValue);
 
-		public static int GetRGB(byte red, byte green, byte blue) => (int)red & (int)byte.MaxValue | ((int)green & (int)byte.MaxValue) << 8 | ((int)blue & (int)byte.MaxValue) << 16;
+		//public static int GetRGB(byte red, byte green, byte blue) => (int)red & (int)byte.MaxValue | ((int)green & (int)byte.MaxValue) << 8 | ((int)blue & (int)byte.MaxValue) << 16;
 
 		public static Color GetColor(int colorRef)
 		{
-			int red = (int)Utils.GetRed(colorRef);
-			byte green = Utils.GetGreen(colorRef);
-			byte blue = Utils.GetBlue(colorRef);
-			int g = (int)green;
-			int b = (int)blue;
-			return Color.FromRgb((byte)red, (byte)g, (byte)b);
+			byte red = GetRed(colorRef);
+			byte green = GetGreen(colorRef);
+			byte blue = GetBlue(colorRef);
+			return Color.FromRgb(red, green, blue);
 		}
 
 		public static Color UpdateBrightness(int brightness, Color color)
 		{
-			color.R = (byte)Math.Min((float)byte.MaxValue, (float)((int)color.R * brightness) / 100f);
-			color.G = (byte)Math.Min((float)byte.MaxValue, (float)((int)color.G * brightness) / 100f);
-			color.B = (byte)Math.Min((float)byte.MaxValue, (float)((int)color.B * brightness) / 100f);
+			color.R = (byte)Math.Min(byte.MaxValue, color.R * brightness / 100f);
+			color.G = (byte)Math.Min(byte.MaxValue, color.G * brightness / 100f);
+			color.B = (byte)Math.Min(byte.MaxValue, color.B * brightness / 100f);
 			return color;
 		}
 	}

@@ -15,11 +15,11 @@ namespace ChromaBroadcast
 		public int CL5;
 		public uint Reserved;
 	}
-	public enum CHROMA_BROADCAST_STATUS
-	{
-		LIVE = 1,
-		NOT_LIVE = 2,
-	}
+	//public enum CHROMA_BROADCAST_STATUS
+	//{
+	//	LIVE = 1,
+	//	NOT_LIVE = 2,
+	//}
 	public enum CHROMA_BROADCAST_TYPE : byte
 	{
 		BROADCAST_EFFECT = 1,

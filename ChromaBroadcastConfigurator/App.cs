@@ -5,7 +5,6 @@
 // Assembly location: C:\Program Files (x86)\Yeelight\LIFXChromaConnector.exe
 
 using System;
-using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.Windows;
 
@@ -25,13 +24,9 @@ namespace ChromaBroadcastConfigurator
 				base.OnStartup(e);
 		}
 
-		[DebuggerNonUserCode]
-		[GeneratedCode("PresentationBuildTasks", "4.0.0.0")]
 		public void InitializeComponent() => this.StartupUri = new Uri("Source/UI/MainWindow.xaml", UriKind.Relative);
 
 		[STAThread]
-		[DebuggerNonUserCode]
-		[GeneratedCode("PresentationBuildTasks", "4.0.0.0")]
 		public static void Main()
 		{
 			App app = new App();

@@ -13,6 +13,19 @@
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
     <!--<Install>false</Install>
 	<InstallFrom>Disk</InstallFrom>
 	<UpdateEnabled>false</UpdateEnabled>
@@ -21,10 +34,6 @@
 	<UpdateIntervalUnits>Days</UpdateIntervalUnits>
 	<UpdatePeriodically>false</UpdatePeriodically>
 	<UpdateRequired>false</UpdateRequired>-->
-    <MapFileExtensions>false</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.0</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
     <!--<PublishWizardCompleted>true</PublishWizardCompleted>-->
     <!--<BootstrapperEnabled>true</BootstrapperEnabled>-->
     <!--<InstallFrom>Disk</InstallFrom>
@@ -55,22 +64,21 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>true</Prefer32Bit>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <ApplicationIcon>rcc.ico</ApplicationIcon>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>release_icon.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestCertificateThumbprint>4AC555F31940320B08D970E2F5C73AE8D7D169AF</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>LIFXChromaConnector_TemporaryKey.pfx</ManifestKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>true</SignManifests>
-  </PropertyGroup>
+  <!--<PropertyGroup>
+		<ManifestCertificateThumbprint>4AC555F31940320B08D970E2F5C73AE8D7D169AF</ManifestCertificateThumbprint>
+	</PropertyGroup>
+	<PropertyGroup>
+		<ManifestKeyFile>LIFXChromaConnector_TemporaryKey.pfx</ManifestKeyFile>
+	</PropertyGroup>
+	<PropertyGroup>
+		<GenerateManifests>true</GenerateManifests>
+	</PropertyGroup>
+	<PropertyGroup>
+		<SignManifests>true</SignManifests>
+	</PropertyGroup>-->
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
@@ -78,7 +86,6 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -95,18 +102,25 @@
     <Compile Include="AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="release_icon.ico" />
-    <Resource Include="resources\background.png" />
-    <Resource Include="resources\workswith.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="source\ui\mainwindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <Content Include="rcc.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 und x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <!--<ItemGroup>
 	<BootstrapperPackage Include=".NETFramework,Version=v4.8">

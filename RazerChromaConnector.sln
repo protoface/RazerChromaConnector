@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32728.150
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazerChromaConnector", "RazerChromaConnector.csproj", "{54E72E1B-9EAF-4A43-8B08-9A8B4DD9A3BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeadlessRazerChromaConnector", "..\HeadlessRazerChromaConnector\HeadlessRazerChromaConnector.csproj", "{C8B793A9-B653-4ED1-91B4-C5BF75D4996C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54E72E1B-9EAF-4A43-8B08-9A8B4DD9A3BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54E72E1B-9EAF-4A43-8B08-9A8B4DD9A3BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54E72E1B-9EAF-4A43-8B08-9A8B4DD9A3BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54E72E1B-9EAF-4A43-8B08-9A8B4DD9A3BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B793A9-B653-4ED1-91B4-C5BF75D4996C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B793A9-B653-4ED1-91B4-C5BF75D4996C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B793A9-B653-4ED1-91B4-C5BF75D4996C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B793A9-B653-4ED1-91B4-C5BF75D4996C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D82A01C3-3058-45C8-91E2-38E5B560B5F2}
+	EndGlobalSection
+EndGlobal

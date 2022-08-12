@@ -4,9 +4,7 @@
 // MVID: 4D823469-FC65-451C-969D-3742766F4C80
 // Assembly location: C:\Program Files (x86)\Yeelight\LIFXChromaConnector.exe
 
-using ChromaBroadcastConfigurator;
 using System;
-using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Windows.Media;
@@ -38,7 +36,7 @@ namespace ChromaBroadcast
 			if (type == CHROMA_BROADCAST_TYPE.BROADCAST_EFFECT)
 			{
 				CHROMA_BROADCAST_EFFECT structure = Marshal.PtrToStructure<CHROMA_BROADCAST_EFFECT>(pData);
-				System.Windows.Media.Color color = Utils.UpdateBrightness(Brightness, Utils.GetColor(structure.CL1));
+				Color color = Utils.UpdateBrightness(Brightness, Utils.GetColor(structure.CL1));
 				if (!udpClient.Client.Connected)
 					udpClient.Connect("192.168.0.109", 2100);
 				udpClient.Send(new byte[] { 0, color.R, color.G, color.B, 1, color.R, color.G, color.B, 2, color.R, color.G, color.B, 3, color.R, color.G, color.B, 4, color.R, color.G, color.B }, 4 * 5);

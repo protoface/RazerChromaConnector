@@ -9,54 +9,50 @@ using System.Runtime.InteropServices;
 
 namespace ChromaBroadcast
 {
-  internal class ChromaBroadcastImpl
-  {
-    private const string DLL_NAME = "RzChromaBroadcastAPI.dll";
+	internal class ChromaBroadcastImpl
+	{
 
-    public static int Initialize(
-      Guid appId,
-      ChromaBroadcastImpl.ChromaBroadcastEvent onChromaBroadcastEvent)
-    {
-      try
-      {
-        if (ChromaBroadcastImpl.Init(appId) != 0)
-          return 1627;
-        ChromaBroadcastImpl.RegisterEventNotification(onChromaBroadcastEvent);
-        return 0;
-      }
-      catch
-      {
-        return 1;
-      }
-    }
+		public static int Initialize(Guid appId, ChromaBroadcastEvent onChromaBroadcastEvent)
+		{
+			try
+			{
+				if (Init(appId) != 0)
+					return 1627;
+				RegisterEventNotification(onChromaBroadcastEvent);
+				return 0;
+			}
+			catch
+			{
+				return 1;
+			}
+		}
 
-    public static int UnInitialize()
-    {
-      try
-      {
-        ChromaBroadcastImpl.UnRegisterEventNotification();
-        return ChromaBroadcastImpl.UnInit() == 0 ? 0 : 1627;
-      }
-      catch
-      {
-        return 1;
-      }
-    }
+		public static int UnInitialize()
+		{
+			try
+			{
+				UnRegisterEventNotification();
+				return UnInit() == 0 ? 0 : 1627;
+			}
+			catch
+			{
+				return 1;
+			}
+		}
 
-    [DllImport("RzChromaBroadcastAPI.dll", CallingConvention = CallingConvention.Cdecl)]
-    private static extern int Init(Guid appInfo);
+		[DllImport("RzChromaBroadcastAPI.dll", CallingConvention = CallingConvention.Cdecl)]
+		private static extern int Init(Guid appInfo);
 
-    [DllImport("RzChromaBroadcastAPI.dll", CallingConvention = CallingConvention.Cdecl)]
-    private static extern int RegisterEventNotification(
-      ChromaBroadcastImpl.ChromaBroadcastEvent lpFunc);
+		[DllImport("RzChromaBroadcastAPI.dll", CallingConvention = CallingConvention.Cdecl)]
+		private static extern int RegisterEventNotification(ChromaBroadcastEvent lpFunc);
 
-    [DllImport("RzChromaBroadcastAPI.dll", CallingConvention = CallingConvention.Cdecl)]
-    private static extern int UnRegisterEventNotification();
+		[DllImport("RzChromaBroadcastAPI.dll", CallingConvention = CallingConvention.Cdecl)]
+		private static extern int UnRegisterEventNotification();
 
-    [DllImport("RzChromaBroadcastAPI.dll", CallingConvention = CallingConvention.Cdecl)]
-    private static extern int UnInit();
+		[DllImport("RzChromaBroadcastAPI.dll", CallingConvention = CallingConvention.Cdecl)]
+		private static extern int UnInit();
 
-    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate int ChromaBroadcastEvent(CHROMA_BROADCAST_TYPE type, IntPtr pData);
-  }
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+		public delegate int ChromaBroadcastEvent(CHROMA_BROADCAST_TYPE type, IntPtr pData);
+	}
 }
