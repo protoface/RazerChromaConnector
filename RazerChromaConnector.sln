@@ -2,9 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32728.150
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazerChromaConnector", "RazerChromaConnector.csproj", "{54E72E1B-9EAF-4A43-8B08-9A8B4DD9A3BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazerChromaConnector", "RazerChromaConnector\RazerChromaConnector.csproj", "{54E72E1B-9EAF-4A43-8B08-9A8B4DD9A3BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeadlessRazerChromaConnector", "..\HeadlessRazerChromaConnector\HeadlessRazerChromaConnector.csproj", "{C8B793A9-B653-4ED1-91B4-C5BF75D4996C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeadlessRazerChromaConnector", "HeadlessRazerChromaConnector\HeadlessRazerChromaConnector.csproj", "{C8B793A9-B653-4ED1-91B4-C5BF75D4996C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
