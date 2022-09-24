@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChromaConnector;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
@@ -10,17 +11,15 @@ namespace ChromaBroadcastConfigurator
 	{
 		public MainWindow() => InitializeComponent();
 
-		ChromaConnector.ChromaManager connector;
 		bool showPreview;
 
-
-		private void Window_Loaded(object sender, RoutedEventArgs e) => connector = ChromaConnector.ChromaManager.CreateNew(App.AppId, Connector_OnBroadcastEvent);
+		private void Window_Loaded(object sender, RoutedEventArgs e) => ChromaManager.Connect(App.AppId, Connector_OnBroadcastEvent);
 
 		private void Connector_OnBroadcastEvent(object sender, ChromaConnector.Color[] e)
 		{
 			Dispatcher.Invoke(() =>
 			{
-				if (showPreview) Background = new SolidColorBrush(Color.FromRgb(e[0].R, e[0].G, e[0].B));
+				if (showPreview) Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(e[0].R, e[0].G, e[0].B));
 				_mTextColor.Text = $"R: {e[0].R} G: {e[0].G} B: {e[0].B}";
 			});
 		}
@@ -32,11 +31,11 @@ namespace ChromaBroadcastConfigurator
 			Background = new SolidColorBrush(Colors.Black);
 		}
 
-		private void Window_Closed(object sender, EventArgs e) => connector.Unitialize();
+		private void Window_Closed(object sender, EventArgs e) => ChromaManager.Unitialize();
 
 		private void SliderBrightness_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
 		{
-			if (connector is not null) connector.Brightness = (int)(sender as Slider).Value;
+			ChromaManager.Brightness = (int)(sender as Slider).Value;
 		}
 
 	}

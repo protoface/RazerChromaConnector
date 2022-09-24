@@ -19,7 +19,7 @@ foreach (string arg in args)
 TaskCompletionSource tcs = new();
 bool exiting = false;
 
-var connector = ChromaManager.CreateNew(AppId, (_, e) =>
+ChromaManager.Connect(AppId, (_, e) =>
 {
 	Console.Out.WriteLine(e[0].ToString());
 });
@@ -38,6 +38,6 @@ AppDomain.CurrentDomain.ProcessExit += (_, _) =>
 		exiting = true;
 	}
 };
-
 await tcs.Task;
-connector.Unitialize();
+
+ChromaManager.Unitialize();

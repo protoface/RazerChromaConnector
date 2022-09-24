@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Drawing;
+using System.Runtime.InteropServices;
 
 namespace ChromaConnector
 {
@@ -17,6 +17,9 @@ namespace ChromaConnector
 			);
 	}
 	public sealed record Color(byte R, byte G, byte B);
+
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	public delegate int ChromaBroadcastEvent(byte type, IntPtr pData);
 }
 
 //Records
