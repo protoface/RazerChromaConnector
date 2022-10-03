@@ -1,7 +1,4 @@
-﻿using System;
-using System.Runtime.InteropServices;
-
-namespace ChromaConnector;
+﻿namespace ChromaConnector;
 
 public static class ChromaBroadcastImpl
 {
