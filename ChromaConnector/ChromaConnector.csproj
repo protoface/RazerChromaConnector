@@ -17,6 +17,7 @@
 		<RepositoryUrl>https://github.com/protoface/RazerChromaConnector</RepositoryUrl>
 		<PackageTags>Razer Chroma Connect Lighting Integration IOT</PackageTags>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<Version>1.0.1</Version>
 	</PropertyGroup>
 	<ItemGroup>
 	  <None Include="..\LICENSE.txt">
