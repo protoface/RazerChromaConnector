@@ -19,7 +19,7 @@ foreach (string arg in args)
 TaskCompletionSource tcs = new();
 bool exiting = false;
 
-ChromaManager.Connect(AppId, (_, e) =>
+ChromaManager.Connect(AppId, e =>
 {
 	Console.Out.WriteLine(e[0].ToString());
 });

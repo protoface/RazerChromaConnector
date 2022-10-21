@@ -13,9 +13,9 @@ namespace ChromaBroadcastConfigurator
 
 		bool showPreview;
 
-		private void Window_Loaded(object sender, RoutedEventArgs e) => ChromaManager.Connect(App.AppId, Connector_OnBroadcastEvent);
+		private void Window_Loaded(object sender, RoutedEventArgs e) => ChromaManager.Connect(App.AppId, Connector_OnBroadcast);
 
-		private void Connector_OnBroadcastEvent(object sender, ChromaConnector.Color[] e)
+		private void Connector_OnBroadcast(ChromaConnector.Color[] e)
 		{
 			Dispatcher.Invoke(() =>
 			{

@@ -13,9 +13,9 @@ Razer Synapse 3 has to be installed to use the connector. You will also need a v
 using ChromaConnector;
 
 Guid AppId = Guid.Parse("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx");
-ChromaManager.Connect(AppId, Connector_OnBroadcastEvent);
+ChromaManager.Connect(AppId, Connector_OnBroadcast);
 
-private void Connector_OnBroadcastEvent(object sender, ChromaConnector.Color[] e)
+void Connector_OnBroadcast(ChromaConnector.Color[] e)
 {
     // do stuff
 }
