@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFrameworks>net7.0; net6.0; net481; net48</TargetFrameworks>
+		<TargetFrameworks>net6.0; net7.0; net8.0</TargetFrameworks>
 		<Nullable>enable</Nullable>
 		<LangVersion>preview</LangVersion>
 		<PlatformTarget>AnyCPU</PlatformTarget>
@@ -19,6 +19,10 @@
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 		<Version>1.1.0</Version>
 		<Optimize>true</Optimize>
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
+		<DebugType>portable</DebugType>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Include="..\LICENSE.txt">

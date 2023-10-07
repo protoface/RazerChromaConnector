@@ -89,3 +89,6 @@ public static class ChromaBroadcastImpl64
 	[DllImport(assemblyName, CallingConvention = CallingConvention.Cdecl)]
 	private static extern int UnInit();
 }
+
+[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+public delegate int ChromaBroadcastEvent(byte type, IntPtr pData);

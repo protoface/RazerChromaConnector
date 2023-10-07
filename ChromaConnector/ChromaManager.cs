@@ -1,12 +1,14 @@
-﻿namespace ChromaConnector;
+﻿using System.Collections.Generic;
+using System.Threading;
+
+namespace ChromaConnector;
 
 public static class ChromaManager
 {
-	public static void Connect(Guid appId, Action<Color[]> BroadcastEvent)
+	public static void Connect(Guid appId, Action<Color[]>? BroadcastEvent = null)
 	{
-		if (BroadcastEvent is null)
-			throw new ArgumentNullException(nameof(BroadcastEvent));
-		OnBroadcastEvent = BroadcastEvent;
+		if (BroadcastEvent != null)
+			OnBroadcastEvent = BroadcastEvent;
 		if (Environment.Is64BitProcess)
 			ChromaBroadcastImpl64.Initialize(appId, BroadcastHandler);
 		else
@@ -15,11 +17,12 @@ public static class ChromaManager
 
 	private static event Action<Color[]>? OnBroadcastEvent;
 	private static readonly ChromaBroadcastEvent BroadcastHandler = OnChromaBroadcastEvent;
-	public static int Brightness { get; set; } = 100;
+	private static float brightness = 1;
 
+	public static float Brightness { get => brightness; set => brightness = Math.Clamp(value, 0, 1); }
 	private static int OnChromaBroadcastEvent(byte type, IntPtr pData)
 	{
-		if (pData != IntPtr.Zero && type == 1)
+		if (pData != IntPtr.Zero && type == (byte)CHROMA_BROADCAST_TYPE.BROADCAST_EFFECT)
 		{
 			ChromaBroadcastEffect structure = Marshal.PtrToStructure<ChromaBroadcastEffect>(pData!);
 			OnBroadcastEvent?.Invoke(new[] {
@@ -32,6 +35,20 @@ public static class ChromaManager
 		}
 
 		return 0;
+	}
+
+	public static IEnumerable<Color[]> WaitForColors(CancellationToken token)
+	{
+		SemaphoreSlim semaphore = new(1);
+		Color[]? colors = null;
+		OnBroadcastEvent += e => { colors = e; semaphore.Release(); };
+		while (!token.IsCancellationRequested)
+		{
+			semaphore.Wait(token);
+			if (colors != null)
+				yield return colors;
+		}
+		yield break;
 	}
 
 	public static void Unitialize()
